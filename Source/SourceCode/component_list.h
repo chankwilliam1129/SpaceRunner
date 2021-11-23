@@ -1,0 +1,11 @@
+#pragma once
+#include "transform.h"
+#include "transform_vibrate.h"
+#include "mesh_render.h"
+#include "sprite_render.h"
+#include "ortho_window.h"
+#include "sphere_collider.h"
+#include "text.h"
+#include "button.h"
+#include "audio_source.h"
+#include "particle_system.h"

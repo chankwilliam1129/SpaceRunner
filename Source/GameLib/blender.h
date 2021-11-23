@@ -1,0 +1,35 @@
+#pragma once
+#include	<d3d11.h>
+
+class Blender
+{
+public:
+	typedef enum 
+	{
+		NONE = 0,	//	çáê¨ñ≥Çµ
+		ALPHA,		//	Éøçáê¨
+		ADD,		//	â¡éZçáê¨
+		SUBTRACT,	//	å∏éZçáê¨
+		REPLACE,	//	íuÇ´ä∑Ç¶
+		MULTIPLY,	//	èÊéZ
+		LIGHTEN,	//	î‰är(ñæ)
+		DARKEN,		//	î‰är(à√)
+		SCREEN,		//	ÉXÉNÉäÅ[Éì
+		MODE_MAX
+	}BLEND_MODE;
+
+private:
+	static ID3D11BlendState*    blendState[MODE_MAX];
+	static bool					bLoad;
+	static BLEND_MODE			nowMode;
+	static ID3D11DeviceContext* keepContext;
+
+public:
+	Blender() {};			//	é¿ëÃämï€ã÷é~
+
+public:
+	static void	Initialize(ID3D11Device* device, ID3D11DeviceContext* context);
+	static void Set(BLEND_MODE mode, ID3D11DeviceContext* context = nullptr);
+	static void Release();
+};
+
